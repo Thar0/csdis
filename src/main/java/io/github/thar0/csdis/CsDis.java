@@ -17,7 +17,7 @@ import java.nio.file.Paths;
  */
 public class CsDis {
 
-    public static final String LS = System.lineSeparator();
+    private static final String LS = System.lineSeparator();
 
     public static void main(String[] args) throws IOException {
         switch(args.length) { 
@@ -51,7 +51,7 @@ public class CsDis {
         }
     }
 
-    public static void printHelp() {
+    private static void printHelp() {
         print("Usage: java -jar csdis.jar [--text] <infile> [outfile]");
         print("The infile may be supplied as a raw hex dump of the cutscene data or as");
         print("a text file formatted as a comma separated list of hex integers.");
@@ -692,47 +692,47 @@ public class CsDis {
         return builder.toString() + LS;
     }
 
-    public static final byte firstByte(int data) {
+    private static byte firstByte(int data) {
         return (byte)((data >> 0) & 0xFF);
     }
 
-    public static final byte secondByte(int data) {
+    private static byte secondByte(int data) {
         return (byte)((data >> 8) & 0xFF);
     }
 
-    public static final byte thirdByte(int data) {
+    private static byte thirdByte(int data) {
         return (byte)((data >> 16) & 0xFF);
     }
 
-    public static final byte fourthByte(int data) {
+    private static byte fourthByte(int data) {
         return (byte)((data >> 24) & 0xFF);
     }
 
-    public static final short firstShort(int data) {
+    private static short firstShort(int data) {
         return (short)((data >> 0) & 0xFFFF);
     }
 
-    public static final short secondShort(int data) {
+    private static short secondShort(int data) {
         return (short)((data >> 16) & 0xFFFF);
     }
 
-    public static final String asFloat(int data) {
+    private static String asFloat(int data) {
         return Float.intBitsToFloat(data)+"f";
     }
 
-    public static final String formatHex(byte b) {
+    private static String formatHex(byte b) {
         return "0x"+pad(Integer.toHexString(b),'0',2,true).toUpperCase();
     }
 
-    public static final String formatHex(short s) {
+    private static String formatHex(short s) {
         return "0x"+pad(Integer.toHexString(s),'0',4,true).toUpperCase();
     }
 
-    public static final String formatHex(int i) {
+    private static String formatHex(int i) {
         return "0x"+pad(Integer.toHexString(i),'0',8,true).toUpperCase();
     }
 
-    public static final String pad(String s, char pad, int len, boolean front) {
+    private static String pad(String s, char pad, int len, boolean front) {
         while(s.length() < len) {
             s = (front) ? pad+s : s+pad;
         }
@@ -742,7 +742,7 @@ public class CsDis {
         return s;
     }
 
-    public static final void print(String s) {
+    private static void print(String s) {
         System.out.println(s);
     }
 }
