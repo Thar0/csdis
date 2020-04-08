@@ -225,7 +225,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_0_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_0_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
@@ -260,7 +261,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_1_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_1_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
@@ -295,7 +297,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_2_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_2_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
@@ -326,7 +329,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_3_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_3_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
@@ -356,7 +360,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_4_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_4_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
@@ -382,7 +387,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_5_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_5_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
@@ -406,7 +412,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_6_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_6_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
@@ -431,7 +438,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_7_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_7_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
@@ -455,7 +463,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_8_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_8_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
@@ -473,7 +482,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_9_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_9_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
@@ -491,7 +501,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
-                    builder.append(String.format("SET_ACTOR_ACTION_10_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "SET_ACTOR_ACTION_10_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
