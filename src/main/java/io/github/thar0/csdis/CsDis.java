@@ -113,7 +113,7 @@ public class CsDis {
 
             // End Cutscene command encountered
             if (cmdType == -1) {
-                return builder.toString() + "END_CUTSCENE" + LS;
+                return builder.toString() + "END_CUTSCENE,";
             }
 
             int cmdEntries;
@@ -134,11 +134,11 @@ public class CsDis {
                     builder.append(String.format(
                             "MISC_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)" + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
-                            secondShort(word2), firstShort(word2), 
-                            cutscene[i+2],cutscene[i+3],cutscene[i+4], 
-                            cutscene[i+5],cutscene[i+6],cutscene[i+7], 
-                            cutscene[i+8],cutscene[i+9],cutscene[i+10], 
-                            cutscene[i+11]));
+                            secondShort(word2), formatHex(firstShort(word2)), 
+                            formatHex(cutscene[i+2]),formatHex(cutscene[i+3]),formatHex(cutscene[i+4]), 
+                            formatHex(cutscene[i+5]),formatHex(cutscene[i+6]),formatHex(cutscene[i+7]), 
+                            formatHex(cutscene[i+8]),formatHex(cutscene[i+9]),formatHex(cutscene[i+10]), 
+                            formatHex(cutscene[i+11])));
                     i += 12;
                 }
                 break;
@@ -152,11 +152,11 @@ public class CsDis {
                     builder.append(String.format(
                             "SET_LIGHTING_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
-                            secondShort(word2), firstShort(word2), 
-                            cutscene[i+2],cutscene[i+3],cutscene[i+4], 
-                            cutscene[i+5],cutscene[i+6],cutscene[i+7], 
-                            cutscene[i+8],cutscene[i+9],cutscene[i+10], 
-                            cutscene[i+11]));
+                            secondShort(word2), formatHex(firstShort(word2)), 
+                            formatHex(cutscene[i+2]),formatHex(cutscene[i+3]),formatHex(cutscene[i+4]), 
+                            formatHex(cutscene[i+5]),formatHex(cutscene[i+6]),formatHex(cutscene[i+7]), 
+                            formatHex(cutscene[i+8]),formatHex(cutscene[i+9]),formatHex(cutscene[i+10]), 
+                            formatHex(cutscene[i+11])));
                     i += 12;
                 }
                 break;
@@ -170,11 +170,11 @@ public class CsDis {
                     builder.append(String.format(
                             "PLAY_BGM_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
-                            secondShort(word2), firstShort(word2), 
-                            cutscene[i+2],cutscene[i+3],cutscene[i+4], 
-                            cutscene[i+5],cutscene[i+6],cutscene[i+7], 
-                            cutscene[i+8],cutscene[i+9],cutscene[i+10], 
-                            cutscene[i+11]));
+                            secondShort(word2), formatHex(firstShort(word2)), 
+                            formatHex(cutscene[i+2]),formatHex(cutscene[i+3]),formatHex(cutscene[i+4]), 
+                            formatHex(cutscene[i+5]),formatHex(cutscene[i+6]),formatHex(cutscene[i+7]), 
+                            formatHex(cutscene[i+8]),formatHex(cutscene[i+9]),formatHex(cutscene[i+10]), 
+                            formatHex(cutscene[i+11])));
                     i += 12;
                 }
                 break;
@@ -188,11 +188,11 @@ public class CsDis {
                     builder.append(String.format(
                             "STOP_BGM_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
-                            secondShort(word2), firstShort(word2), 
-                            cutscene[i+2],cutscene[i+3],cutscene[i+4], 
-                            cutscene[i+5],cutscene[i+6],cutscene[i+7], 
-                            cutscene[i+8],cutscene[i+9],cutscene[i+10], 
-                            cutscene[i+11]));
+                            secondShort(word2), formatHex(firstShort(word2)), 
+                            formatHex(cutscene[i+2]),formatHex(cutscene[i+3]),formatHex(cutscene[i+4]), 
+                            formatHex(cutscene[i+5]),formatHex(cutscene[i+6]),formatHex(cutscene[i+7]), 
+                            formatHex(cutscene[i+8]),formatHex(cutscene[i+9]),formatHex(cutscene[i+10]), 
+                            formatHex(cutscene[i+11])));
                     i += 12;
                 }
                 break;
@@ -206,11 +206,11 @@ public class CsDis {
                     builder.append(String.format(
                             "FADE_BGM_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
-                            secondShort(word2), firstShort(word2), 
-                            cutscene[i+2],cutscene[i+3],cutscene[i+4], 
-                            cutscene[i+5],cutscene[i+6],cutscene[i+7], 
-                            cutscene[i+8],cutscene[i+9],cutscene[i+10], 
-                            cutscene[i+11]));
+                            secondShort(word2), formatHex(firstShort(word2)), 
+                            formatHex(cutscene[i+2]),formatHex(cutscene[i+3]),formatHex(cutscene[i+4]), 
+                            formatHex(cutscene[i+5]),formatHex(cutscene[i+6]),formatHex(cutscene[i+7]), 
+                            formatHex(cutscene[i+8]),formatHex(cutscene[i+9]),formatHex(cutscene[i+10]), 
+                            formatHex(cutscene[i+11])));
                     i += 12;
                 }
                 break;
@@ -241,7 +241,7 @@ public class CsDis {
                             "SET_TIME_ENTRY(%s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(secondByte(word2)), formatHex(firstByte(word2)),
-                            cutscene[i+2]));
+                            formatHex(cutscene[i+2])));
                     i += 3;
                 }
                 break;
@@ -545,7 +545,7 @@ public class CsDis {
                 word2 = cutscene[i+1];
                 builder.append(String.format("CAMERA_POSITIONS(%s, %s, %s, %s)," + LS, 
                         formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), firstShort(word2)));
+                        secondShort(word2), formatHex(firstShort(word2))));
                 i += 2;
                 shouldContinue = true;
                 while (shouldContinue) {
@@ -559,7 +559,7 @@ public class CsDis {
                             formatHex(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
                             formatHex(word2), 
                             secondShort(word3), firstShort(word3), 
-                            secondShort(word4), firstShort(word4)));
+                            secondShort(word4), formatHex(firstShort(word4))));
                     if (continueFlag == -1) {
                         shouldContinue = false;
                     }
@@ -571,7 +571,7 @@ public class CsDis {
                 word2 = cutscene[i+1];
                 builder.append(String.format("CAMERA_LINK_POSITIONS(%s, %s, %s, %s)," + LS, 
                         formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), firstShort(word2)));
+                        secondShort(word2), formatHex(firstShort(word2))));
                 i += 2;
                 shouldContinue = true;
                 while (shouldContinue) {
@@ -585,7 +585,7 @@ public class CsDis {
                             formatHex(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
                             formatHex(word2), 
                             secondShort(word3), firstShort(word3), 
-                            secondShort(word4), firstShort(word4)));
+                            secondShort(word4), formatHex(firstShort(word4))));
                     if (continueFlag == (byte)-1) {
                         shouldContinue = false;
                     }
@@ -597,7 +597,7 @@ public class CsDis {
                 word2 = cutscene[i+1];
                 builder.append(String.format("CAMERA_FOCUS_POINTS(%s, %s, %s, %s)," + LS, 
                         formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), firstShort(word2)));
+                        secondShort(word2), formatHex(firstShort(word2))));
                 i += 2;
                 shouldContinue = true;
                 while (shouldContinue) {
@@ -611,7 +611,7 @@ public class CsDis {
                             formatHex(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
                             formatHex(word2), 
                             secondShort(word3), firstShort(word3), 
-                            secondShort(word4), firstShort(word4)));
+                            secondShort(word4), formatHex(firstShort(word4))));
                     if (continueFlag == -1) {
                         shouldContinue = false;
                     }
@@ -623,7 +623,7 @@ public class CsDis {
                 word2 = cutscene[i+1];
                 builder.append(String.format("CAMERA_LINK_FOCUS_POINTS(%s, %s, %s, %s)," + LS, 
                         formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), firstShort(word2)));
+                        secondShort(word2), formatHex(firstShort(word2))));
                 i += 2;
                 shouldContinue = true;
                 while (shouldContinue) {
@@ -637,7 +637,7 @@ public class CsDis {
                             formatHex(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
                             formatHex(word2), 
                             secondShort(word3), firstShort(word3), 
-                            secondShort(word4), firstShort(word4)));
+                            secondShort(word4), formatHex(firstShort(word4))));
                     if (continueFlag == -1) {
                         shouldContinue = false;
                     }
@@ -651,13 +651,13 @@ public class CsDis {
                 word4 = cutscene[i+3];
                 builder.append(String.format("CMD_07(%s, %s, %s, %s)," + LS, 
                         formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), firstShort(word2)));
+                        secondShort(word2), formatHex(firstShort(word2))));
                 builder.append(String.format(
                         "CMD_07_ENTRY(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                         formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
                         formatHex(word2), 
                         secondShort(word3), firstShort(word3), 
-                        secondShort(word4), firstShort(word4)));
+                        secondShort(word4), formatHex(firstShort(word4))));
                 i += 6;
                 break;
             case 8:
@@ -673,7 +673,7 @@ public class CsDis {
                         formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
                         formatHex(word2), 
                         secondShort(word3), firstShort(word3), 
-                        secondShort(word4), firstShort(word4)));
+                        secondShort(word4), formatHex(firstShort(word4))));
                 i += 6;
                 break;
             case 1000:
@@ -683,7 +683,7 @@ public class CsDis {
                 builder.append(String.format(
                         "CS_TERMINATOR(%s, %s, %s, %s)," + LS, 
                         formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), firstShort(word2)));
+                        secondShort(word2), formatHex(firstShort(word2))));
                 i += 2;
                 break;
             case 19:
@@ -718,7 +718,7 @@ public class CsDis {
                 word2 = cutscene[i+1];
                 builder.append(String.format("SCENE_TRANS_FX(%s, %s, %s, %s)," + LS, 
                         formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), firstShort(word2)));
+                        secondShort(word2), formatHex(firstShort(word2))));
                 i += 2;
                 break;
             default:
