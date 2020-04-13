@@ -186,7 +186,7 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     builder.append(String.format(
-                            "CS_STOP_BGM(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                            "    CS_STOP_BGM(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(cutscene[i+2]),formatHex(cutscene[i+3]),formatHex(cutscene[i+4]), 
@@ -511,10 +511,9 @@ public class CsDis {
                 i++;
                 word1 = cutscene[i];
                 word2 = cutscene[i+1];
-                builder.append(String.format(
-                        "CS_TERMINATOR(%s, %s, %s, %s)," + LS, 
+                builder.append(String.format("CS_TERMINATOR(%s, %s, %s)," + LS, 
                         formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), formatHex(firstShort(word2))));
+                        secondShort(word2)));
                 i += 2;
                 break;
             case 19:
@@ -526,16 +525,19 @@ public class CsDis {
                     word2 = cutscene[i+1];
                     word3 = cutscene[i+2];
                     if (secondShort(word1)==-1) {
-                        builder.append(String.format("    CS_TEXTBOX_NO_TEXT(%s, %s)," + LS, 
+                        builder.append(String.format(
+                                "    CS_TEXTBOX_NO_TEXT(%s, %s)," + LS, 
                                 firstShort(word1), 
                                 secondShort(word2)));
                     } else if (firstShort(word2)==2) {
-                        builder.append(String.format("    CS_TEXTBOX_LEARN_SONG(%s, %s, %s, %s)," + LS, 
+                        builder.append(String.format(
+                                "    CS_TEXTBOX_LEARN_SONG(%s, %s, %s, %s)," + LS, 
                                 formatHex(secondShort(word1)), firstShort(word1), 
                                 secondShort(word2), 
                                 formatHex(secondShort(word3))));
                     } else {
-                        builder.append(String.format("    CS_TEXTBOX_DISPLAY_TEXT(%s, %s, %s, %s, %s, %s)," + LS, 
+                        builder.append(String.format(
+                                "    CS_TEXTBOX_DISPLAY_TEXT(%s, %s, %s, %s, %s, %s)," + LS, 
                                 formatHex(secondShort(word1)), firstShort(word1), 
                                 secondShort(word2), formatHex(firstShort(word2)), 
                                 formatHex(secondShort(word3)), formatHex(firstShort(word3))));
@@ -547,9 +549,9 @@ public class CsDis {
                 i++;
                 word1 = cutscene[i];
                 word2 = cutscene[i+1];
-                builder.append(String.format("CS_SCENE_TRANS_FX(%s, %s, %s, %s)," + LS, 
+                builder.append(String.format("CS_SCENE_TRANS_FX(%s, %s, %s)," + LS, 
                         formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), formatHex(firstShort(word2))));
+                        secondShort(word2)));
                 i += 2;
                 break;
             default:
@@ -558,7 +560,8 @@ public class CsDis {
                 builder.append(String.format("CS_UNK_DATA_LIST(%s, %s)," + LS, formatHex(cmdType), cmdEntries));
                 i++;
                 for (int j = 0; j < cmdEntries; j++) {
-                    builder.append(String.format("    CS_UNK_DATA(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                    builder.append(String.format(
+                            "    CS_UNK_DATA(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(cutscene[i]), formatHex(cutscene[i+1]), formatHex(cutscene[i+2]), 
                             formatHex(cutscene[i+3]), formatHex(cutscene[i+4]), formatHex(cutscene[i+5]), 
                             formatHex(cutscene[i+6]), formatHex(cutscene[i+7]), formatHex(cutscene[i+8]), 
