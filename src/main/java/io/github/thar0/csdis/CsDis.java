@@ -132,7 +132,7 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     builder.append(String.format(
-                            "    CS_MISC(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)" + LS, 
+                            "    CS_MISC(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(cutscene[i+2]),formatHex(cutscene[i+3]),formatHex(cutscene[i+4]), 
