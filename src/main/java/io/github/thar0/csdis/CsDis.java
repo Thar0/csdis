@@ -518,7 +518,7 @@ public class CsDis {
                 break;
             case 19:
                 cmdEntries = cutscene[i];
-                builder.append(String.format("CS_TEXTBOX_LIST(%s)," + LS, cmdEntries));
+                builder.append(String.format("CS_TEXT_LIST(%s)," + LS, cmdEntries));
                 i++;
                 for (int j = 0; j < cmdEntries; j++) {
                     word1 = cutscene[i];
@@ -526,18 +526,18 @@ public class CsDis {
                     word3 = cutscene[i+2];
                     if (secondShort(word1)==-1) {
                         builder.append(String.format(
-                                "    CS_TEXTBOX_NO_TEXT(%s, %s)," + LS, 
+                                "    CS_TEXT_NONE(%s, %s)," + LS, 
                                 firstShort(word1), 
                                 secondShort(word2)));
                     } else if (firstShort(word2)==2) {
                         builder.append(String.format(
-                                "    CS_TEXTBOX_LEARN_SONG(%s, %s, %s, %s)," + LS, 
+                                "    CS_TEXT_LEARN_SONG(%s, %s, %s, %s)," + LS, 
                                 formatHex(secondShort(word1)), firstShort(word1), 
                                 secondShort(word2), 
                                 formatHex(secondShort(word3))));
                     } else {
                         builder.append(String.format(
-                                "    CS_TEXTBOX_DISPLAY_TEXT(%s, %s, %s, %s, %s, %s)," + LS, 
+                                "    CS_TEXT_DISPLAY_TEXTBOX(%s, %s, %s, %s, %s, %s)," + LS, 
                                 formatHex(secondShort(word1)), firstShort(word1), 
                                 secondShort(word2), formatHex(firstShort(word2)), 
                                 formatHex(secondShort(word3)), formatHex(firstShort(word3))));
