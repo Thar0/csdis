@@ -387,7 +387,7 @@ public class CsDis {
                     byte continueFlag = fourthByte(word1);
                     builder.append(String.format(
                             "    CS_CAM_POS(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
-                            formatHex(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
+                            commandContinueStop(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
                             formatHex(word2), 
                             secondShort(word3), firstShort(word3), 
                             secondShort(word4), formatHex(firstShort(word4))));
@@ -413,7 +413,7 @@ public class CsDis {
                     byte continueFlag = fourthByte(word1);
                     builder.append(String.format(
                             "    CS_CAM_POS_PLAYER(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
-                            formatHex(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
+                            commandContinueStop(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
                             formatHex(word2), 
                             secondShort(word3), firstShort(word3), 
                             secondShort(word4), formatHex(firstShort(word4))));
@@ -439,7 +439,7 @@ public class CsDis {
                     byte continueFlag = fourthByte(word1);
                     builder.append(String.format(
                             "    CS_CAM_FOCUS_POINT(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
-                            formatHex(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
+                            commandContinueStop(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
                             formatHex(word2), 
                             secondShort(word3), firstShort(word3), 
                             secondShort(word4), formatHex(firstShort(word4))));
@@ -465,7 +465,7 @@ public class CsDis {
                     byte continueFlag = fourthByte(word1);
                     builder.append(String.format(
                             "    CS_CAM_FOCUS_POINT_PLAYER(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
-                            formatHex(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
+                            commandContinueStop(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
                             formatHex(word2), 
                             secondShort(word3), firstShort(word3), 
                             secondShort(word4), formatHex(firstShort(word4))));
@@ -485,7 +485,7 @@ public class CsDis {
                         secondShort(word2), formatHex(firstShort(word2))));
                 builder.append(String.format(
                         "    CS_CMD_07(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
-                        formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
+                        commandContinueStop(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
                         formatHex(word2), 
                         secondShort(word3), firstShort(word3), 
                         secondShort(word4), formatHex(firstShort(word4))));
@@ -501,7 +501,7 @@ public class CsDis {
                         secondShort(word2), firstShort(word2)));
                 builder.append(String.format(
                         "    CS_CMD_08(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
-                        formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
+                        commandContinueStop(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
                         formatHex(word2), 
                         secondShort(word3), firstShort(word3), 
                         secondShort(word4), formatHex(firstShort(word4))));
@@ -573,6 +573,10 @@ public class CsDis {
         }
         // Return cutscene data even if an End Cutscene command was not encountered but total entry limit was reached
         return builder.toString() + LS;
+    }
+
+    public static String commandContinueStop(byte value) {
+        return (value == 0) ? "CS_CMD_CONTINUE" : ((value == -1) ? "CS_CMD_STOP" : formatHex(value));
     }
 
     private static byte firstByte(int data) {
