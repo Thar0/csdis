@@ -150,8 +150,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     builder.append(String.format(
-                            "    CS_LIGHTING(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
-                            formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
+                            "    CS_LIGHTING(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                            formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(cutscene[i+2]),formatHex(cutscene[i+3]),formatHex(cutscene[i+4]), 
                             formatHex(cutscene[i+5]),formatHex(cutscene[i+6]),formatHex(cutscene[i+7]), 
@@ -168,8 +168,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     builder.append(String.format(
-                            "    CS_PLAY_BGM(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
-                            formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
+                            "    CS_PLAY_BGM(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                            formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(cutscene[i+2]),formatHex(cutscene[i+3]),formatHex(cutscene[i+4]), 
                             formatHex(cutscene[i+5]),formatHex(cutscene[i+6]),formatHex(cutscene[i+7]), 
@@ -186,8 +186,8 @@ public class CsDis {
                     word1 = cutscene[i];
                     word2 = cutscene[i+1];
                     builder.append(String.format(
-                            "    CS_STOP_BGM(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
-                            formatHex(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
+                            "    CS_STOP_BGM(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                            formatHex(secondShort(word1)), firstShort(word1), 
                             secondShort(word2), formatHex(firstShort(word2)), 
                             formatHex(cutscene[i+2]),formatHex(cutscene[i+3]),formatHex(cutscene[i+4]), 
                             formatHex(cutscene[i+5]),formatHex(cutscene[i+6]),formatHex(cutscene[i+7]), 
@@ -374,9 +374,9 @@ public class CsDis {
             case 1:
                 word1 = cutscene[i];
                 word2 = cutscene[i+1];
-                builder.append(String.format("CS_CAM_POS_LIST(%s, %s, %s, %s)," + LS, 
-                        formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), formatHex(firstShort(word2))));
+                builder.append(String.format("CS_CAM_POS_LIST(%s, %s)," + LS, 
+                        firstShort(word1), 
+                        secondShort(word2)));
                 i += 2;
                 shouldContinue = true;
                 while (shouldContinue) {
@@ -400,9 +400,9 @@ public class CsDis {
             case 5:
                 word1 = cutscene[i];
                 word2 = cutscene[i+1];
-                builder.append(String.format("CS_CAM_POS_PLAYER_LIST(%s, %s, %s, %s)," + LS, 
-                        formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), formatHex(firstShort(word2))));
+                builder.append(String.format("CS_CAM_POS_PLAYER_LIST(%s, %s)," + LS, 
+                        firstShort(word1), 
+                        secondShort(word2)));
                 i += 2;
                 shouldContinue = true;
                 while (shouldContinue) {
@@ -426,9 +426,9 @@ public class CsDis {
             case 2:
                 word1 = cutscene[i];
                 word2 = cutscene[i+1];
-                builder.append(String.format("CS_CAM_FOCUS_POINT_LIST(%s, %s, %s, %s)," + LS, 
-                        formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), formatHex(firstShort(word2))));
+                builder.append(String.format("CS_CAM_FOCUS_POINT_LIST(%s, %s)," + LS, 
+                        firstShort(word1), 
+                        secondShort(word2)));
                 i += 2;
                 shouldContinue = true;
                 while (shouldContinue) {
@@ -452,9 +452,9 @@ public class CsDis {
             case 6:
                 word1 = cutscene[i];
                 word2 = cutscene[i+1];
-                builder.append(String.format("CS_CAM_FOCUS_POINT_PLAYER_LIST(%s, %s, %s, %s)," + LS, 
-                        formatHex(secondShort(word1)), firstShort(word1), 
-                        secondShort(word2), formatHex(firstShort(word2))));
+                builder.append(String.format("CS_CAM_FOCUS_POINT_PLAYER_LIST(%s, %s)," + LS, 
+                        firstShort(word1), 
+                        secondShort(word2)));
                 i += 2;
                 shouldContinue = true;
                 while (shouldContinue) {
