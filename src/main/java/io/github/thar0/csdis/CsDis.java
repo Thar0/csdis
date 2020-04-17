@@ -9,6 +9,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static io.github.thar0.csdis.CsData.*;
+import static io.github.thar0.csdis.Util.*;
+
 /**
  * Cutscene disassembler to a macro representation of each command.
  * 
@@ -512,7 +515,7 @@ public class CsDis {
                 word1 = cutscene[i];
                 word2 = cutscene[i+1];
                 builder.append(String.format("CS_TERMINATOR(%s, %s, %s)," + LS, 
-                        formatHex(secondShort(word1)), firstShort(word1), 
+                        getCSTerminatorDestination(secondShort(word1)), firstShort(word1), 
                         secondShort(word2)));
                 i += 2;
                 break;
@@ -532,7 +535,7 @@ public class CsDis {
                     } else if (firstShort(word2)==2) {
                         builder.append(String.format(
                                 "    CS_TEXT_LEARN_SONG(%s, %s, %s, %s)," + LS, 
-                                formatHex(secondShort(word1)), firstShort(word1), 
+                                getOcarinaSongActionID(secondShort(word1)), firstShort(word1), 
                                 secondShort(word2), 
                                 formatHex(secondShort(word3))));
                     } else {
@@ -573,59 +576,5 @@ public class CsDis {
         }
         // Return cutscene data even if an End Cutscene command was not encountered but total entry limit was reached
         return builder.toString() + LS;
-    }
-
-    public static String commandContinueStop(byte value) {
-        return (value == 0) ? "CS_CMD_CONTINUE" : ((value == -1) ? "CS_CMD_STOP" : formatHex(value));
-    }
-
-    private static byte firstByte(int data) {
-        return (byte)((data >> 0) & 0xFF);
-    }
-
-    private static byte secondByte(int data) {
-        return (byte)((data >> 8) & 0xFF);
-    }
-
-    private static byte thirdByte(int data) {
-        return (byte)((data >> 16) & 0xFF);
-    }
-
-    private static byte fourthByte(int data) {
-        return (byte)((data >> 24) & 0xFF);
-    }
-
-    private static short firstShort(int data) {
-        return (short)((data >> 0) & 0xFFFF);
-    }
-
-    private static short secondShort(int data) {
-        return (short)((data >> 16) & 0xFFFF);
-    }
-
-    private static String formatHex(byte b) {
-        return "0x"+pad(Integer.toHexString(b),'0',2,true).toUpperCase();
-    }
-
-    private static String formatHex(short s) {
-        return "0x"+pad(Integer.toHexString(s),'0',4,true).toUpperCase();
-    }
-
-    private static String formatHex(int i) {
-        return "0x"+pad(Integer.toHexString(i),'0',8,true).toUpperCase();
-    }
-
-    private static String pad(String s, char pad, int len, boolean front) {
-        while(s.length() < len) {
-            s = (front) ? pad+s : s+pad;
-        }
-        if(s.length() > len) {
-            s = (front) ? s.substring(s.length()-len, s.length()) : s.substring(0, len);
-        }
-        return s;
-    }
-
-    private static void print(String s) {
-        System.out.println(s);
     }
 }
