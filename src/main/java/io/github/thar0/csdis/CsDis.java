@@ -370,7 +370,7 @@ public class CsDis {
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
                             cutscene[i+3], cutscene[i+4], cutscene[i+5], 
                             cutscene[i+6], cutscene[i+7], cutscene[i+8], 
-                            cutscene[i+9], cutscene[i+10], cutscene[i+11]));
+                            formatHex(cutscene[i+9]), formatHex(cutscene[i+10]), formatHex(cutscene[i+11])));
                     i += 12;
                 }
                 break;
