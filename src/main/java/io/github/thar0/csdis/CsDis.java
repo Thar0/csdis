@@ -61,11 +61,11 @@ public class CsDis {
     }
 
     private static void printHelp() {
-        print("Usage: java -jar csdis.jar [-text] <infile> [outfile] [--f]");
+        print("Usage: java -jar csdis.jar [--text] <infile> [outfile] [--f]");
         print("The infile may be supplied as a raw hex dump of the cutscene data or as");
         print("a text file formatted as a comma separated list of hex integers.");
-        print("If a text file, the -text flag must be chosen.");
-        print("Use the --f flag if floats are to be emitted as IEEE754 hexadecimal values");
+        print("If a text file, the --text flag must be chosen.");
+        print("Use the --f flag if floats are to be emitted as IEEE-754 hexadecimal values");
         print("rather than in decimal format.");
     }
 
@@ -125,7 +125,11 @@ public class CsDis {
 
             // End Cutscene command encountered
             if (cmdType == -1) {
-                return builder.toString() + "CS_END(),";
+                builder.append("CS_END()," + LS);
+                for (; i<cutscene.length; i++) {
+                    builder.append("CS_PAD()," + LS);
+                }
+                return builder.toString();
             }
 
             int cmdEntries;

@@ -7,7 +7,7 @@
   <artifactId>csdis</artifactId>
   <name>csdis</name>
   <description>Cutscene Disassembler</description>
-  <version>1.4.0</version>
+  <version>1.4.2</version>
   <developers>
     <developer>
       <id>thar0</id>
