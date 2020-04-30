@@ -8,6 +8,7 @@ import java.nio.IntBuffer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 import static io.github.thar0.csdis.CsData.*;
 import static io.github.thar0.csdis.Util.*;
@@ -22,7 +23,12 @@ public class CsDis {
 
     private static final String LS = System.lineSeparator();
 
+    static boolean emitFloats = true;
+
     public static void main(String[] args) throws IOException {
+        if(Arrays.asList(args).contains("--f")) {
+            emitFloats = false;
+        }
         switch(args.length) { 
         case 0:
             printHelp();
@@ -55,9 +61,12 @@ public class CsDis {
     }
 
     private static void printHelp() {
-        print("Usage: java -jar csdis.jar [--text] <infile> [outfile]");
+        print("Usage: java -jar csdis.jar [-text] <infile> [outfile] [--f]");
         print("The infile may be supplied as a raw hex dump of the cutscene data or as");
         print("a text file formatted as a comma separated list of hex integers.");
+        print("If a text file, the -text flag must be chosen.");
+        print("Use the --f flag if floats are to be emitted as IEEE754 hexadecimal values");
+        print("rather than in decimal format.");
     }
 
     public static int[] readFileForCutscene(String filePath, boolean text) throws IOException {
@@ -370,7 +379,7 @@ public class CsDis {
                             formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
                             cutscene[i+3], cutscene[i+4], cutscene[i+5], 
                             cutscene[i+6], cutscene[i+7], cutscene[i+8], 
-                            formatHex(cutscene[i+9]), formatHex(cutscene[i+10]), formatHex(cutscene[i+11])));
+                            asFloat(cutscene[i+9]), asFloat(cutscene[i+10]), asFloat(cutscene[i+11])));
                     i += 12;
                 }
                 break;
@@ -391,7 +400,7 @@ public class CsDis {
                     builder.append(String.format(
                             "    CS_CAM_POS(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             commandContinueStop(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
-                            formatHex(word2), 
+                            asFloat(word2), 
                             secondShort(word3), firstShort(word3), 
                             secondShort(word4), formatHex(firstShort(word4))));
                     if (continueFlag == -1) {
@@ -417,7 +426,7 @@ public class CsDis {
                     builder.append(String.format(
                             "    CS_CAM_POS_PLAYER(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             commandContinueStop(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
-                            formatHex(word2), 
+                            asFloat(word2), 
                             secondShort(word3), firstShort(word3), 
                             secondShort(word4), formatHex(firstShort(word4))));
                     if (continueFlag == (byte)-1) {
@@ -443,7 +452,7 @@ public class CsDis {
                     builder.append(String.format(
                             "    CS_CAM_FOCUS_POINT(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             commandContinueStop(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
-                            formatHex(word2), 
+                            asFloat(word2), 
                             secondShort(word3), firstShort(word3), 
                             secondShort(word4), formatHex(firstShort(word4))));
                     if (continueFlag == -1) {
@@ -469,7 +478,7 @@ public class CsDis {
                     builder.append(String.format(
                             "    CS_CAM_FOCUS_POINT_PLAYER(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                             commandContinueStop(continueFlag), formatHex(thirdByte(word1)), firstShort(word1), 
-                            formatHex(word2), 
+                            asFloat(word2), 
                             secondShort(word3), firstShort(word3), 
                             secondShort(word4), formatHex(firstShort(word4))));
                     if (continueFlag == -1) {
@@ -489,7 +498,7 @@ public class CsDis {
                 builder.append(String.format(
                         "    CS_CMD_07(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                         commandContinueStop(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
-                        formatHex(word2), 
+                        asFloat(word2), 
                         secondShort(word3), firstShort(word3), 
                         secondShort(word4), formatHex(firstShort(word4))));
                 i += 6;
@@ -505,7 +514,7 @@ public class CsDis {
                 builder.append(String.format(
                         "    CS_CMD_08(%s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
                         commandContinueStop(fourthByte(word1)), formatHex(thirdByte(word1)), firstShort(word1), 
-                        formatHex(word2), 
+                        asFloat(word2), 
                         secondShort(word3), firstShort(word3), 
                         secondShort(word4), formatHex(firstShort(word4))));
                 i += 6;

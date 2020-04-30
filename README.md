@@ -8,7 +8,7 @@ Requires JRE-8 or above to run.
 
 ### Usage
 
-`java -jar csdis.jar [--text] <infile> [outfile]`
+`java -jar csdis.jar [--text] <infile> [outfile] [--f]`
 
 The `infile` should be formatted either as raw bytes of cutscene data, or
 a comma-separated list of 32-bit integers in hexadecimal form similar to the
@@ -16,6 +16,9 @@ contents of a C-like array. If the latter, the `--text` flag must be chosen.
 
 If `outfile` is specified, the macros will be output to that file, otherwise 
 the result is printed to console.
+
+The `--f` flag must be at the end of the arguments and if chosen will emit floats
+in IEEE-754 hexadecimal format rather than decimal format.
 
 ### Building
 

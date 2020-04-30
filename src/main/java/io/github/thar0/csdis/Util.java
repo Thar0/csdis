@@ -38,6 +38,14 @@ class Util {
         return "0x"+pad(Integer.toHexString(i),'0',8,true).toUpperCase();
     }
 
+    static String asFloat(int i) {
+        return (CsDis.emitFloats) ? Float.intBitsToFloat(i) + "f" : formatHex(i);
+    }
+
+    static int rDigitAt(String s, int rightIdx) {
+        return Integer.parseInt(String.valueOf(s.charAt(s.length()-rightIdx)));
+    }
+
     static String pad(String s, char pad, int len, boolean front) {
         while(s.length() < len) {
             s = (front) ? pad+s : s+pad;
