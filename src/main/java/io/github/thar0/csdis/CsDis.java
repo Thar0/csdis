@@ -262,7 +262,24 @@ public class CsDis {
                 }
                 break;
             case 10:
-                //Actor action 0
+                cmdEntries = cutscene[i];
+                builder.append(String.format("CS_PLAYER_ACTION_LIST(%s)," + LS, cmdEntries));
+                i++;
+                for (int j = 0; j < cmdEntries; j++) {
+                    word1 = cutscene[i];
+                    word2 = cutscene[i+1];
+                    word3 = cutscene[i+2];
+                    builder.append(String.format(
+                            "    CS_PLAYER_ACTION(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)," + LS, 
+                            formatHex(secondShort(word1)), firstShort(word1), 
+                            secondShort(word2), formatHex(firstShort(word2)), 
+                            formatHex(secondShort(word3)), formatHex(firstShort(word3)), 
+                            cutscene[i+3], cutscene[i+4], cutscene[i+5], 
+                            cutscene[i+6], cutscene[i+7], cutscene[i+8], 
+                            asFloat(cutscene[i+9]), asFloat(cutscene[i+10]), asFloat(cutscene[i+11])));
+                    i += 12;
+                }
+                break;
             case 15:
             case 17:
             case 18:
